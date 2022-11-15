@@ -12,16 +12,11 @@
 
 		<title>QR Code Fuzzer</title>
 	</head>
-	<body " >
-	
-
-		  
+	<body >
 		<div id="reader"></div>
 		<h3>Scanner:</h3>
 		<input type="file" id="qr-input-file" accept="image/*" capture>
-		<div id="qrCodeMessage"></div>
-
-
+		<h3>Content:</h3><div id="qrCodeMessage"></div>
 		<div class="container-fluid">
 			<div class="text-center">
 
@@ -54,13 +49,15 @@
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
 						<!-- Button to generate QR Code for the entered data -->
-						<button type="button" class="btn btn-default" id="generate" onclick="createQR()" hidden>
+						<button type="button" class="btn btn-default" id="generate" onclick="createQR()" >
 							Generate
 						</button>
 					</div>
 				</div>
 			</div>
 		</div>
+
+
 		<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 		<script src="https://randojs.com/2.0.0.js"></script>
 		<script src="html5-qrcode.min.js"></script>
@@ -79,7 +76,7 @@ fileinput.addEventListener('change', e => {
 
   // Use the first item in the list
   const imageFile = e.target.files[0];
-  html5QrCode.scanFile(imageFile, /* showImage= */true)
+  html5QrCode.scanFile(imageFile, /* showImage= */false)
   .then(qrCodeMessage => {
     // success, use qrCodeMessage
     console.log(qrCodeMessage);
